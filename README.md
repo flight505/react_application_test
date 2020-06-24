@@ -1,3 +1,66 @@
+## Created deploy a React app on within pages and copy the url
+### Let's start by creating a new repo:
+Go to github.com/new.
+For Repository Name, you can choose any name of your choice, but in this guide, we will be using test-react-gh-pages.
+Click Create Repository.
+
+### Next creating the react application 
+Open up your terminal and type the following command:
+
+    npx create-react-app test-react-gh-pages
+
+This will create a new folder named test-react-gh-pages (or whatever you named your app). 
+Then follow the instructions on how to start and run the application.
+Navigate to the folder that was just created.
+
+    cd /path/to/test-react-gh-pages
+
+Link and push your newly created project to Github Repository.
+
+    git init
+    git add .
+    git commit -m "first commit"
+    git remote add origin git@github.com:username/guide-react-gh-pages.git
+	git push -u origin master
+
+### Push to Github
+Still in the terminal and in the folder for your app, follow these steps:
+
+Install the gh-pages as a dev-dependency
+
+	npm install gh-pages --save-dev
+
+Open the app's packaage.json file and 
+Add an homepage field with its value to be the string:
+
+    http://{username}.github.io/{repo-name}, where {username}
+ is your GitHub username, and {repo-name} is the name of the GitHub repository you created in Step 1.
+
+    "homepage": "https://myusername.github.io/guide-react-gh-pages",
+
+If you skip the step, the app will not deploy correctly because create-react-app uses the homepage field to determine the root URL in the built HTML file.
+Update the existing scripts field with the following:
+
+    "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+    },
+
+### Deploy the app.
+    npm run deploy
+The predeploy script will run automatically before deploy is run.
+Voila! The app is now accessible at the URL you specified in the homepage field in the package.json file.
+
+#### Summary
+This guide has provided a walkthrough on how you can publish your React application to gh-pages with a few easy steps using create-react-app and gh-pages npm package.
+Here is a useful link if you'd like to learn more:
+* [Facebook tutorial](https://create-react-app.dev/docs/deployment/#github-pages-https-pagesgithubcom)
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
