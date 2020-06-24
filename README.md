@@ -1,7 +1,9 @@
 ## Created deploy a React app on within pages and copy the url
 ### Let's start by creating a new repo:
 Go to github.com/new.
+
 For Repository Name, you can choose any name of your choice, but in this guide, we will be using test-react-gh-pages.
+
 Click Create Repository.
 
 ### Next creating the react application 
